@@ -13,9 +13,9 @@
 - **平均显存节省**：45.8%
 - 显存节省最多的配置（61.5%）反而加速比最低（1.38倍），表明融合的核心收益来自减少内核调度开销，而非单纯节省显存
 
-## 实验配置
+## 实验设置
 
-| 配置 | Batch Size | Sequence Length | 加速比 | 显存节省 |
+| 实验变量 | Batch Size | Sequence Length | 加速比 | 显存节省 |
 |------|-----------|-----------------|--------|----------|
 | A | 2 | 64 | 2.89x | 36.0% |
 | B | 2 | 128 | 2.09x | 40.1% |
@@ -31,7 +31,7 @@
 ## 运行方法
 
 ```python
-# 启用算子融合（仅需一行代码）
+# 启用算子融合
 model = DecoderOnlyTransformer(...).to(device)
 model = torch.compile(model, mode="reduce-overhead")
 ```
